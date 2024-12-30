@@ -1,0 +1,83 @@
+#Q1. Which keyword is used to create a function? Create a function to return a list of odd numbers in the range of 1 to 25.
+# def keyword is use to create a function
+def oddNumber(n):
+    l1=[]
+    for i in range(n):
+        if i%2!=0:
+            l1.append(i)
+    return l1
+s1=oddNumber(25)
+print(s1)
+
+#Q2. Why *args and **kwargs is used in some functions? Create a function each for *args and **kwargs to demonstrate their use.
+#to take n parameters in function
+#to take n key value pair in function
+def test1(*args):
+    return args
+s2=test1(1,2,3,4,4)
+print(s2)
+
+def test2(**kwargs):
+    return kwargs
+s3=test2(name="Alice", age=30, job="Data Analyst")
+print(s3)
+
+#Q7. Write a List Comprehension to iterate through the given string: ‘pwskills’.Expected output: ['p', 'w', 's', 'k', 'i', 'l', 'l', 's']
+string='pwskills'
+s=[i for i in string]
+print(s)
+#Q9. Write a code to print odd numbers from 1 to 100 using list comprehension.
+n=100
+s5=[i for i in range(n) if i%2!=0]
+print(s5)
+#Q8. Write a python program to check whether a given number is Palindrome or not using a while loop.
+n=121
+r=0
+n3=n
+while n>0:
+    n1=n%10
+    r=r*10+n1
+    n=n//10
+if r==n3:
+    print('given number is Palindrome')
+else:
+    print('given number is not palindrome')
+
+#Q6. Write a python program to print the first 10 Fibonacci numbers using a while loop.
+a,b=0,1
+while n<10:
+    print(a,end=' ')
+    a,b=b,a+b
+    n=n+1
+#---------------------------------------------------------------------------------------------
+#Q3. What is an iterator in python? Name the method used to initialise the iterator object and the method used for iteration. Use these methods to print the first five elements of the given list [2, 4, 6, 8, 10, 12, 14,16, 18, 20].
+#iterator means in that we can perform next next we can also says generator function as iterator or that traverse all the elements in collection once at a time
+#iter method we are using to initialise the function
+l1=[2, 4, 6, 8, 10, 12, 14,16, 18, 20]
+s6=iter(l1)
+print('\n')
+print(next(s6))
+print(next(s6))
+print(next(s6))
+print(next(s6))
+#Q4. What is a generator function in python? Why yield keyword is used? Give an example of a generator function.
+# normal function store all data and give all data together so that reasor memory take time but generator function give output value one by one. generator instant returning single value it generate sequence of values
+#yield keyword is use to create generator function it give data one by one
+#fibonacci series
+
+#Q5. Create a generator function for prime numbers less than 1000. Use the next() method to print the first 20 prime numbers.
+
+def primeNUmber(n1):
+    n=2
+    while n<n1:
+        is_prime = True
+        for i in range(2,n):
+            if n%i==0:
+                is_prime=False
+                break
+        if is_prime==True:
+            yield n
+        n=n+1
+s6=primeNUmber(1000)
+for j in range(20):
+    print(next(s6))
